@@ -5,6 +5,15 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+- [Description](#description)
+- [Install](#install)
+- [How to use](#how-to-use)
+- [Variables](#variables)
+- [Functions](#functions)
+- [Examples](#examples)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Description
 
 Logging module for Bash scripts.
