@@ -32,7 +32,7 @@ source Log4bash/log4bash.sh
 log4bash_info "Use logging info function."
 ...
 ...
-``` 
+```
 
 ## Variables
 
