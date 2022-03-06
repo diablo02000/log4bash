@@ -10,6 +10,7 @@
 - [How to use](#how-to-use)
 - [Variables](#variables)
 - [Functions](#functions)
+- [Contributing](#contributing)
 - [Examples](#examples)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -31,7 +32,7 @@ Logging module for Bash scripts.
 ```bash
 #!/bin/bash
 
-source Log4bash/log4bash.sh
+source log4bash/log4bash.sh
 ```
 
 - Call any log4bash function:
@@ -61,6 +62,19 @@ log4bash_info "Use logging info function."
 | log4bash_warn | Print Warnning log. |
 | log4bash_error | Print Error log. |
 | log4bash_critical | Print Critical log. (Return exit 1 after printing log message |
+
+## Contributing
+
+:sparkles: Thanks for contributing to this project. :sparkless:
+
+I do my best to read and answer to your merges request.
+
+| Commit message | Release type |
+|:---:|:---:|
+| feat(pencil): Create fatal method. | Feature Release |
+| fix(pencil): Add new line after message. | Fix Release |
+| doc: Update README | README update |
+| break: Update method name | Breaking Release/Major Release |
 
 ## Examples
 
