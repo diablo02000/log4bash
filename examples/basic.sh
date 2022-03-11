@@ -5,7 +5,7 @@
 
 # Load log4bash lib
 # shellcheck source=log4bash.sh
-source log4bash.sh
+source ../log4bash.sh
 
 # Print Debug log
 # This will be not print because default is INFO

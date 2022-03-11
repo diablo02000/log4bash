@@ -9,7 +9,7 @@ LOG4BASH_LOG_LEVEL="DEBUG"
 
 # Load log4bash lib
 # shellcheck source=log4bash.sh
-source log4bash.sh
+source ../log4bash.sh
 
 # Print Debug log
 log4bash_debug "Print log in DEBUG log level"
