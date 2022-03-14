@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/diablo02000/log4bash/compare/1.0.0...1.0.1) (2022-03-14)
+
+
+### Bug Fixes
+
+* Add script portability accross UNIX like operating system. ([dd59fc3](https://github.com/diablo02000/log4bash/commit/dd59fc3b8f7c1f93ac93e166e0605bf9f9aafeff))
+* Add script portability accross UNIX like operating system. ([46345f8](https://github.com/diablo02000/log4bash/commit/46345f8d44d76de473df5f58eabd8e006d065f5e))
+* Exclude CHANGELOG.md file from markdown linter. ([aa763a0](https://github.com/diablo02000/log4bash/commit/aa763a0d3654a2d933485de9d643abcf4a1738fa))
+
 # 1.0.0 (2022-03-06)
 
 
