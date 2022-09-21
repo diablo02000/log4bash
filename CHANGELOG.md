@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/diablo02000/log4bash/compare/1.0.1...1.0.2) (2022-09-21)
+
+
+### Bug Fixes
+
+* badge on readme. ([46c9421](https://github.com/diablo02000/log4bash/commit/46c9421c2ecabf06dd48d3657ba6d4dfed6c2af9))
+
 ## [1.0.1](https://github.com/diablo02000/log4bash/compare/1.0.0...1.0.1) (2022-03-14)
 
 
