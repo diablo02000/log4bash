@@ -1,6 +1,7 @@
 # Log4Bash
 
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+![shell-script](https://img.shields.io/badge/script-bash-121011?logo=gnu-bash&logoColor=white)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
