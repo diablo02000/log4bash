@@ -48,7 +48,7 @@ log4bash_info "Use logging info function."
 ## Variables
 
 | Names  | Default  | Descriptions  |
-|---|:-:|---|
+|---|---|---|
 | LOG4BASH_LOG_LEVEL | INFO | Define log level. |
 | LOG4BASH_DATE_FMT | `%D %X` | Define date format. (man date to see date format) |
 | LOG4BASH_MAX_MESSAGE | 100 | Define max message length in the line. |
@@ -71,7 +71,7 @@ log4bash_info "Use logging info function."
 I do my best to read and answer to your merges request.
 
 | Commit message | Release type |
-|:---:|:---:|
+|---|---|
 | feat(pencil): Create fatal method. | Feature Release |
 | fix(pencil): Add new line after message. | Fix Release |
 | doc: Update README | README update |
