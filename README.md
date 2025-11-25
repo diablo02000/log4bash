@@ -8,7 +8,7 @@
 
 - [Description](#description)
 - [Install](#install)
-- [How to use](#how-to-use)
+- [How to Use](#how-to-use)
 - [Variables](#variables)
 - [Functions](#functions)
 - [Contributing](#contributing)
@@ -18,65 +18,66 @@
 
 ## Description
 
-Logging module for Bash scripts.
+A lightweight logging module for Bash scripts, designed to standardize and simplify log output with customizable log levels, colors, and formatting.
 
 ## Install
 
+Clone the repository to integrate `log4bash` into your project:
+
 ```bash
-~$ git clone https://github.com/diablo02000/log4bash.git
+git clone https://github.com/diablo02000/log4bash.git
 ```
 
-## How to use
+## How to Use
 
-- Import `log4bash.sh` file in your code:
+1) Import the module in your script:
 
 ```bash
 #!/bin/bash
-
 source log4bash/log4bash.sh
 ```
 
-- Call any log4bash function:
+2) Call any logging function:
 
 ```bash
-...
-log4bash_info "Use logging info function."
-...
-...
+log4bash_info "This is an info message."
 ```
 
 ## Variables
 
-| Names  | Default  | Descriptions  |
+Customize the behavior of `log4bash` using these environment variables:
+
+|Name|Default Value|Description|
 |---|---|---|
-| LOG4BASH_LOG_LEVEL | INFO | Define log level. |
-| LOG4BASH_DATE_FMT | `%D %X` | Define date format. (man date to see date format) |
-| LOG4BASH_MAX_MESSAGE | 100 | Define max message length in the line. |
-| LOG4BASH_ENABLE_COLOR_MODE | 1 | Enable/Disable print in color. |
+|LOG4BASH_LOG_LEVEL|INFO|Set the minimum log level to display (e.g., DEBUG, INFO, WARN)|
+|LOG4BASH_DATE_FMT|%D %X|Define the date format (see man date for options)|
+|LOG4BASH_MAX_MESSAGE|100|Limit the maximum length of log messages|
+|LOG4BASH_ENABLE_COLOR_MODE|1|Enable or disable colored output (1 for enabled, 0 for disabled)|
 
 ## Functions
 
-| Names | Descriptions  |
+Use these functions to log messages at different severity levels:
+
+|Function|Description|
 |---|---|
-| log4bash_debug | Print Debug log. |
-| log4bash_info | Print Info log. |
-| log4bash_warn | Print Warnning log. |
-| log4bash_error | Print Error log. |
-| log4bash_critical | Print Critical log. (Return exit 1 after printing log message |
+|log4bash_debug|Log a debug message|
+|log4bash_info|Log an informational message|
+|log4bash_warn|Log a warning message|
+|log4bash_error|Log an error message|
+|log4bash_critical|Log a critical message and exit the script with status 1|
 
 ## Contributing
 
-:sparkles: Thanks for contributing to this project. :sparkless:
+🎉 Thanks for contributing! I review all pull requests as soon as possible.
+Follow these commit message conventions for automated releases:
 
-I do my best to read and answer to your merges request.
-
-| Commit message | Release type |
+|Commit Message Example|Release Type|
 |---|---|
-| feat(pencil): Create fatal method. | Feature Release |
-| fix(pencil): Add new line after message. | Fix Release |
-| doc: Update README | README update |
-| break: Update method name | Breaking Release/Major Release |
+|feat(pencil): Add fatal method| Feature Release|
+|fix(pencil): Add newline after message Bug| Fix Release|
+|doc: Update README| Documentation Update|
+|break: Rename method| Breaking/Major Release|
 
 ## Examples
 
-You can find several examples in [examples](examples) directory.
+Explore practical usage in the [examples](examples) directory.
