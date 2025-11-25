@@ -12,6 +12,8 @@
 - [Variables](#variables)
 - [Functions](#functions)
 - [Contributing](#contributing)
+- [Development](#development)
+  - [Setup](#setup)
 - [Examples](#examples)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -27,6 +29,8 @@ Clone the repository to integrate `log4bash` into your project:
 ```bash
 git clone https://github.com/diablo02000/log4bash.git
 ```
+
+For development, this project uses mise to manage tools and tasks. See the [Development](#development) section for details.
 
 ## How to Use
 
@@ -68,7 +72,16 @@ Use these functions to log messages at different severity levels:
 
 ## Contributing
 
-🎉 Thanks for contributing! I review all pull requests as soon as possible.
+🎉 Thanks for contributing!
+
+Before submitting a pull request, ensure all checks pass using `mise`:
+
+```bash
+# Run unit tests
+mise run test
+```
+
+I review all pull requests as soon as possible.
 Follow these commit message conventions for automated releases:
 
 |Commit Message Example|Release Type|
@@ -77,6 +90,24 @@ Follow these commit message conventions for automated releases:
 |fix(pencil): Add newline after message Bug| Fix Release|
 |doc: Update README| Documentation Update|
 |break: Rename method| Breaking/Major Release|
+
+## Development
+
+This project uses [`mise`](https://mise.jdx.dev/) to manage tools and automate tasks like running unit tests and pre-commit hooks.
+
+### Setup
+
+1) Install `mise` (if not already installed):
+
+```bash
+curl https://mise.run | sh
+```
+
+2) Install the required tools and dependencies:
+
+```bash
+mise install
+```
 
 ## Examples
 
