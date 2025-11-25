@@ -461,8 +461,5 @@ tags
 # Persistent undo
 [._]*.un~
 
-### pre-commit ###
-.pre-commit-config.yaml
-
 # End of https://www.toptal.com/developers/gitignore/api/vim,intellij+all
 n
