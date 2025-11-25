@@ -1,0 +1,20 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/thlorenz/doctoc
+    rev: v2.2.0
+    hooks:
+    - id: doctoc
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0
+    hooks:
+    - id: shellcheck
+    - id: markdownlint
+    - id: script-must-have-extension
+      types: [shell, non-executable] 
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.10.0
+    hooks:
+      - id: commitizen
+      - id: commitizen-branch
+        stages: [pre-push]
