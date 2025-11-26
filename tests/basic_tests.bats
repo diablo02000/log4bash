@@ -8,7 +8,7 @@ setup() {
 #  # Load log4bash.sh file
 #  source "$(dirname ${BATS_TEST_DIRNAME})/log4bash.sh"
 #
-#  run log4bash_debug "${OUTPUT_MESSAGE}"
+#  run log_debug "${OUTPUT_MESSAGE}"
 #  assert_success
 #  assert_output --partial 'DEBUG'
 #}
@@ -17,7 +17,7 @@ setup() {
   # Load log4bash.sh file
   source "$(dirname "${BATS_TEST_DIRNAME}")/log4bash.sh"
 
-  run log4bash_info "${OUTPUT_MESSAGE}"
+  run log_info "${OUTPUT_MESSAGE}"
   assert_success
   assert_output --partial 'INFO'
 }
@@ -26,7 +26,7 @@ setup() {
   # Load log4bash.sh file
   source "$(dirname "${BATS_TEST_DIRNAME}")/log4bash.sh"
 
-  run log4bash_warn "${OUTPUT_MESSAGE}"
+  run log_warn "${OUTPUT_MESSAGE}"
   assert_success
   assert_output --partial 'WARN'
 }
@@ -35,7 +35,7 @@ setup() {
   # Load log4bash.sh file
   source "$(dirname "${BATS_TEST_DIRNAME}")/log4bash.sh"
 
-  run log4bash_error "${OUTPUT_MESSAGE}"
+  run log_error "${OUTPUT_MESSAGE}"
   assert_success
   assert_output --partial 'ERROR'
 }
@@ -44,7 +44,7 @@ setup() {
   # Load log4bash.sh file
   source "$(dirname "${BATS_TEST_DIRNAME}")/log4bash.sh"
 
-  run log4bash_critical "${OUTPUT_MESSAGE}"
+  run log_critical "${OUTPUT_MESSAGE}"
   assert_failure
   # assert_output --partial 'CRITI'
 }

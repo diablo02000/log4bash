@@ -1,145 +1,121 @@
 #!/usr/bin/env bash
+#
+# Bash Logging Library - Standardized and Simplified Logging
+    #
+    # Features:
+    #   - Configurable log levels (DEBUG, INFO, WARN, ERROR, CRITICAL)
+    #   - Color-coded output (if terminal supports it)
+    #   - Timestamped log messages
+    #   - Message length normalization
+    #
 
-#####
-## Create logging bash library
+    # --- Constants ---
+    # Available log levels and their priorities
+    declare -rA LOG_LEVELS=(
+        [DEBUG]=10
+        [INFO]=20
+        [WARN]=30
+        [ERROR]=40
+        [CRITICAL]=50
+    )
 
-# Set output log level.
-# The available option are:
-# - DEBUG
-# - INFO
-# - WARN
-# - ERROR
-# Set default value to INFO.
-# Unset LOG4BASH LOG LEVEL is the value is unknown.
-declare -rA LOG4BASH_AVAILABLE_LOG_LEVEL=([DEBUG]=10 [INFO]=20 [WARN]=30 [ERROR]=40 [CRITICAL]=50)
+    # --- Configurable Variables ---
+    # Default log level (INFO if not set or invalid)
+    declare LOG_LEVEL="${LOG_LEVEL:=INFO}"
+    # Date format for timestamps (see `man date` for options)
+    declare DATE_FORMAT="${DATE_FORMAT:=%D %X}"
+    # Maximum length of log messages (truncated if longer)
+    declare MAX_MESSAGE_LENGTH="${MAX_MESSAGE_LENGTH:=100}"
+    # Enable/disable color output (1 = enabled, 0 = disabled)
+    declare ENABLE_COLOR="${ENABLE_COLOR:=1}"
 
-# If log level is not valid, unset log level variable
-_reset_log_level=0
-for _log_lvl in "${!LOG4BASH_AVAILABLE_LOG_LEVEL[@]}"
-do
-	if [ "${_log_lvl}" == "${LOG4BASH_LOG_LEVEL}" ];
-	then
-		_reset_log_level=1
-		break
-	fi
-done
+    # --- Color Codes ---
+    # Note: Only used if terminal supports colors and ENABLE_COLOR=1
+    declare -rA COLOR_CODES=(
+        [DEBUG]="\e[96m"   # Cyan
+        [INFO]="\e[32m"    # Green
+        [WARN]="\e[33m"    # Yellow
+        [ERROR]="\e[31m"   # Red
+        [CRITICAL]="\e[31m" # Red (same as ERROR for emphasis)
+        [RESET]="\e[0m"    # Reset color
+    )
 
-[[ ${_reset_log_level} == 1 ]] && LOG4BASH_LOG_LEVEL=""
+    # --- Validate and Set Log Level ---
+    # Unset LOG_LEVEL if invalid
+    if ! [[ -n "${LOG_LEVELS[$LOG_LEVEL]+1}" ]]; then
+        LOG_LEVEL="INFO"
+    fi
+    readonly LOG_LEVEL_INT="${LOG_LEVELS[$LOG_LEVEL]}"
 
-declare -r LOG4BASH_LOG_LEVEL="${LOG4BASH_LOG_LEVEL:=INFO}"
+    # --- Terminal Color Support Check ---
+    # Check if terminal supports colors (>= 8 colors)
+    TERMINAL_SUPPORTS_COLORS=$(tput colors 2>/dev/null || echo 0)
+    readonly TERMINAL_SUPPORTS_COLORS
 
-# Define log date format.
-# check date man for the available format.
-declare -r LOG4BASH_DATE_FMT="${LOG4BASH_DATE_FMT:=%D %X}"
+    # --- Log Message Format ---
+    # Format for colored logs: [LEVEL] - TIMESTAMP - MESSAGE
+    declare -r COLOR_TEXT_FMT="[%b%s%b] - %s - %-${MAX_MESSAGE_LENGTH}b\n"
+    # Format for non-colored logs: [LEVEL] - TIMESTAMP - MESSAGE
+    declare -r DEFAULT_TEXT_FMT="[%s] - %s - %-${MAX_MESSAGE_LENGTH}b\n"
 
-# Define max log message length.
-declare -r LOG4BASH_MAX_MESSAGE_LENGTH=100
+    # --- Core Logging Function ---
+    # Outputs a formatted log message if the message's level >= current LOG_LEVEL
+    # Args:
+    #   $1: Log level (DEBUG, INFO, WARN, ERROR, CRITICAL)
+    #   $2: Log message
+    function _log_output() {
+        local level="$1"
+        local message="$2"
+        local args=()
 
-########################################################
-## Main variables
-
-declare -r LOG4BASH_LOG_LEVEL_INT="${LOG4BASH_AVAILABLE_LOG_LEVEL[${LOG4BASH_LOG_LEVEL}]}"
-
-# Define log default text formats
-declare -r LOG4BASH_DEFAULT_TEXT_FMT="[%s] - %s - %-${LOG4BASH_MAX_MESSAGE_LENGTH}b\n"
-declare -r LOG4BASH_DEFAULT_COLOR_TEXT_FMT="[%b%s%b] - %s - %-${LOG4BASH_MAX_MESSAGE_LENGTH}b\n"
-
-# Enable/Disable color mode
-declare -r LOG4BASH_ENABLE_COLOR_MODE=${LOG4BASH_ENABLE_COLOR_MODE:=1}
-
-# Define color code
-# shellcheck disable=SC2034
-declare -r DEBUG="\e[96m"
-# shellcheck disable=SC2034
-declare -r INFO="\e[32m"
-# shellcheck disable=SC2034
-declare -r WARN="\e[33m"
-# shellcheck disable=SC2034
-declare -r ERROR="\e[31m"
-# shellcheck disable=SC2034
-declare -r CRITI="\e[31m"
-# shellcheck disable=SC2034
-declare -r DEFAULT="\e[0m"
-
-# Select color text format is terminal supports color
-# and if user select color mode
-LOG4BASH_TERMINAL_SUPPORT_COLORS=$(tput colors)
-readonly LOG4BASH_TERMINAL_SUPPORT_COLORS
-
-# Output formatted log message
-function _log4bash_output(){
-
-	local log_lvl="${1}"
-	local log_message="${2}"
-
-	# Declare empty array to store method's parameters
-	declare -a _args
-
-	# Add colors code is output color is enable.
-	if [[ ${LOG4BASH_TERMINAL_SUPPORT_COLORS} -gt 8 ]] && [[ ${LOG4BASH_ENABLE_COLOR_MODE} -gt 0 ]];
-	then
-		# Use color format
-		LOG4BASH_TEXT_FMT="${LOG4BASH_DEFAULT_COLOR_TEXT_FMT}"
-
-		# Add colors code with log level.
-		_args+=("${!log_lvl}")
-		_args+=("${log_lvl}")
-		_args+=("${DEFAULT}")
-	else
-		# Use log format without color.
-		LOG4BASH_TEXT_FMT="${LOG4BASH_DEFAULT_TEXT_FMT}"
-
-		# Add log level
-		_args+=("${log_lvl}")
-	fi
-
-	# Append date time
-	_args+=("$(date +"${LOG4BASH_DATE_FMT}")")
-	_args+=("${log_message}")
-
-	if [[ ${LOG4BASH_AVAILABLE_LOG_LEVEL[${log_lvl}]} -ge ${LOG4BASH_LOG_LEVEL_INT} ]];
-	then
-		# shellcheck disable=SC2059
-		printf "${LOG4BASH_TEXT_FMT}" "${_args[@]}"
-	fi
-
+        # Use colored format if terminal supports it and colors are enabled
+        if [[ "$TERMINAL_SUPPORTS_COLORS" -gt 8 ]] && [[ "$ENABLE_COLOR" -gt 0 ]]; then
+            args+=("${COLOR_CODES[$level]}" "$level" "${COLOR_CODES[RESET]}")
+            # shellcheck disable=SC2059
+            printf "$COLOR_TEXT_FMT" "${args[@]}" "$(date +"$DATE_FORMAT")" "$message"
+    else
+        args+=("$level")
+            # shellcheck disable=SC2059
+        printf "$DEFAULT_TEXT_FMT" "${args[@]}" "$(date +"$DATE_FORMAT")" "$message"
+    fi
 }
 
+# --- Log Level Functions ---
+# Each function checks if the message's level is >= current LOG_LEVEL before logging
 
-# Print log in DEBUG lvl
-# param: message: Message text to output
-function log4bash_debug(){
-	local message="${1}"
-	_log4bash_output "DEBUG" "${message}"
+# Log a DEBUG message
+# Args:
+#   $1: Message to log
+function log_debug() {
+    [[ "${LOG_LEVELS[DEBUG]}" -ge "$LOG_LEVEL_INT" ]] && _log_output "DEBUG" "$1"
 }
 
-# Print log in INFO lvl
-# param: message: Message text to output
-function log4bash_info(){
-	local message="${1}"
-	_log4bash_output "INFO" "${message}"
+# Log an INFO message
+# Args:
+#   $1: Message to log
+function log_info() {
+    [[ "${LOG_LEVELS[INFO]}" -ge "$LOG_LEVEL_INT" ]] && _log_output "INFO" "$1"
 }
 
-# Print log in Warning lvl
-# param: message: Message text to output
-function log4bash_warn(){
-	local message="${1}"
-	_log4bash_output "WARN" "${message}"
+# Log a WARN message
+# Args:
+#   $1: Message to log
+function log_warn() {
+    [[ "${LOG_LEVELS[WARN]}" -ge "$LOG_LEVEL_INT" ]] && _log_output "WARN" "$1"
 }
 
-# Print log in ERROR lvl
-# param: message: Message text to output
-function log4bash_error(){
-	local message="${1}"
-	_log4bash_output "ERROR" "${message}"
+# Log an ERROR message
+# Args:
+#   $1: Message to log
+function log_error() {
+    [[ "${LOG_LEVELS[ERROR]}" -ge "$LOG_LEVEL_INT" ]] && _log_output "ERROR" "$1"
 }
 
-# Print log in CRITICAL lvl
-# param: message: Message text to output
-function log4bash_critical(){
-	local message="${1}"
-	_log4bash_output "CRITI" "${message}"
-	# Stop after show log message.
-	exit 1
+# Log a CRITICAL message and exit
+# Args:
+#   $1: Message to log
+function log_critical() {
+    _log_output "CRITICAL" "$1"
+    exit 1
 }
 
