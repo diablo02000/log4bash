@@ -1,3 +1,5 @@
+# [2.0.0](https://github.com/diablo02000/log4bash/compare/1.0.3...2.0.0) (2025-11-26)
+
 ## [1.0.3](https://github.com/diablo02000/log4bash/compare/1.0.2...1.0.3) (2025-11-26)
 
 
