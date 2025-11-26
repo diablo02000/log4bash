@@ -64,11 +64,11 @@ Use these functions to log messages at different severity levels:
 
 |Function|Description|
 |---|---|
-|log4bash_debug|Log a debug message|
-|log4bash_info|Log an informational message|
-|log4bash_warn|Log a warning message|
-|log4bash_error|Log an error message|
-|log4bash_critical|Log a critical message and exit the script with status 1|
+|log_debug|Log a debug message|
+|log_info|Log an informational message|
+|log_warn|Log a warning message|
+|log_error|Log an error message|
+|log_critical|Log a critical message and exit the script with status 1|
 
 ## Contributing
 
