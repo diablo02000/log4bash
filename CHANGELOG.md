@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/diablo02000/log4bash/compare/2.0.0...2.0.1) (2025-11-26)
+
+
+### Bug Fixes
+
+* **log4bash:** bad indent in code ([a5a4d1b](https://github.com/diablo02000/log4bash/commit/a5a4d1b70436dc4f00c0f998ac4ae78eec9bf072))
+
 # [2.0.0](https://github.com/diablo02000/log4bash/compare/1.0.3...2.0.0) (2025-11-26)
 
 ## [1.0.3](https://github.com/diablo02000/log4bash/compare/1.0.2...1.0.3) (2025-11-26)
