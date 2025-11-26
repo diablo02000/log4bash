@@ -461,5 +461,9 @@ tags
 # Persistent undo
 [._]*.un~
 
+## Bats ##
+# Ignore extended bats library
+tests/test_helper/*
+
 # End of https://www.toptal.com/developers/gitignore/api/vim,intellij+all
 n

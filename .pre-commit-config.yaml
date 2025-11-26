@@ -12,6 +12,7 @@ repos:
     - id: markdownlint
     - id: script-must-have-extension
       types: [shell, non-executable] 
+      excludes: "tests/test_helper/common-setup.bash"
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v4.10.0
     hooks:
