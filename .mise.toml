@@ -3,3 +3,21 @@ pre-commit = "latest"
 shellcheck = "latest"
 bats = "latest"
 actionlint = "latest"
+
+[tasks.bats_helper]
+description = "Download required bats extended libraries"
+run = [
+  "git clone --depth 1 https://github.com/bats-core/bats-support.git tests/test_helper/bats-support",
+  "git clone --depth 1 https://github.com/bats-core/bats-assert.git tests/test_helper/bats-assert"
+]
+
+[tasks.clean_bats_helper]
+description = "Delet required bats extended libraries"
+run = [
+  "rm -rf tests/test_helper/bats-support",
+  "rm -rf tests/test_helper/bats-assert"
+]
+
+[tasks.test]
+description = "Run automated tests"
+run = "bats tests/"
