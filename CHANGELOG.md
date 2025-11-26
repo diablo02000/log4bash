@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/diablo02000/log4bash/compare/1.0.2...1.0.3) (2025-11-26)
+
+
+### Bug Fixes
+
+* **actions:** upgrade semantic-release action versions ([a0cd8b8](https://github.com/diablo02000/log4bash/commit/a0cd8b8a8640b4da6ed39d7f19ae78f5221f1b2e))
+
 ## [1.0.2](https://github.com/diablo02000/log4bash/compare/1.0.1...1.0.2) (2022-09-21)
 
 
