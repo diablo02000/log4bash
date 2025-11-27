@@ -45,7 +45,7 @@ declare -rA COLOR_CODES=(
 if ! [[ -n "${LOG_LEVELS[$LOG_LEVEL]+1}" ]]; then
     LOG_LEVEL="INFO"
 fi
-readonly LOG_LEVEL_INT="${LOG_LEVELS[$LOG_LEVEL]}"
+declare LOG_LEVEL_INT="${LOG_LEVELS[$LOG_LEVEL]}"
 
 # --- Terminal Color Support Check ---
 # Check if terminal supports colors (>= 8 colors)
@@ -54,9 +54,9 @@ readonly TERMINAL_SUPPORTS_COLORS
 
 # --- Log Message Format ---
 # Format for colored logs: [LEVEL] - TIMESTAMP - MESSAGE
-declare -r COLOR_TEXT_FMT="[%b%s%b] - %s - %-${MAX_MESSAGE_LENGTH}b\n"
+declare -r COLOR_TEXT_FMT="[%b%s%b] - %s - %.${MAX_MESSAGE_LENGTH}b\n"
 # Format for non-colored logs: [LEVEL] - TIMESTAMP - MESSAGE
-declare -r DEFAULT_TEXT_FMT="[%s] - %s - %-${MAX_MESSAGE_LENGTH}b\n"
+declare -r DEFAULT_TEXT_FMT="[%s] - %s - %.${MAX_MESSAGE_LENGTH}b\n"
 
 # --- Core Logging Function ---
 # Outputs a formatted log message if the message's level >= current LOG_LEVEL
@@ -88,6 +88,7 @@ function _log_output() {
 #   $1: Message to log
 function log_debug() {
     [[ "${LOG_LEVELS[DEBUG]}" -ge "$LOG_LEVEL_INT" ]] && _log_output "DEBUG" "$1"
+    return 0
 }
 
 # Log an INFO message
@@ -95,6 +96,7 @@ function log_debug() {
 #   $1: Message to log
 function log_info() {
     [[ "${LOG_LEVELS[INFO]}" -ge "$LOG_LEVEL_INT" ]] && _log_output "INFO" "$1"
+    return 0
 }
 
 # Log a WARN message
@@ -102,6 +104,7 @@ function log_info() {
 #   $1: Message to log
 function log_warn() {
     [[ "${LOG_LEVELS[WARN]}" -ge "$LOG_LEVEL_INT" ]] && _log_output "WARN" "$1"
+    return 0
 }
 
 # Log an ERROR message
@@ -109,6 +112,7 @@ function log_warn() {
 #   $1: Message to log
 function log_error() {
     [[ "${LOG_LEVELS[ERROR]}" -ge "$LOG_LEVEL_INT" ]] && _log_output "ERROR" "$1"
+    return 0
 }
 
 # Log a CRITICAL message and exit
@@ -119,3 +123,17 @@ function log_critical() {
     exit 1
 }
 
+# --- Runtime Log Level Update ---
+# Updates the log level at runtime
+# Args:
+#   $1: New log level (DEBUG, INFO, WARN, ERROR, CRITICAL)
+function set_log_level() {
+    local new_level="$1"
+    if [[ -n "${LOG_LEVELS[$new_level]+1}" ]]; then
+        LOG_LEVEL="$new_level"
+        LOG_LEVEL_INT="${LOG_LEVELS[$new_level]}"
+        log_info "Log level changed to $LOG_LEVEL"
+    else
+        log_error "Invalid log level: $new_level. Log level remains $LOG_LEVEL"
+    fi
+}
