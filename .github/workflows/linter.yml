@@ -7,24 +7,24 @@ on:
       - main
 
 jobs:
-  shellcheck:
+  super-linter:
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v6
-    - name: Run Shellcheck
-      uses: ludeeus/action-shellcheck@master
-      with:
-        check_together: 'yes'
-        severity: warning
-      env:
-        SHELLCHECK_OPTS: --external-sources
-
-  markdown:
-    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
     steps:
     - name: Check out code
       uses: actions/checkout@v6
-    - name: Run mdl
-      uses: actionshub/markdownlint@main
+      with:
+        # super-linter needs the full git history to get the
+        # list of files that changed across commits
+        fetch-depth: 0
+        persist-credentials: false
+    - name: Run super-linter
+      uses: super-linter/super-linter@v8.2.1
+      env:
+          # To report GitHub Actions status checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         filesToIgnoreRegex: "CHANGELOG.md"
