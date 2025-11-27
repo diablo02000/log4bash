@@ -1,0 +1,28 @@
+---
+on: [push]
+
+permissions: read-all
+
+jobs:
+   bats:
+     runs-on: ubuntu-latest
+     name: Install Bats and bats libs
+     steps:
+       - name: Checkout
+         # Version v6.0.0
+         uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+         with:
+           persist-credentials: false
+       - name: Setup Bats and bats libs
+         id: setup-bats
+         # Version 3.0.1
+         uses: bats-core/bats-action@42fcc8700f773c075a16a90eb11674c0318ad507
+         with:
+           support-path: ${{ github.workspace }}/tests/test_helper/bats-support
+           assert-path: "${{ github.workspace }}/tests/test_helper/bats-assert"
+       - name: Bats tests
+         shell: bash
+         env:
+           BATS_LIB_PATH: ${{ steps.setup-bats.outputs.lib-path }}
+           TERM: xterm
+         run: bats tests/
