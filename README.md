@@ -69,6 +69,7 @@ Use these functions to log messages at different severity levels:
 |log_warn|Log a warning message|
 |log_error|Log an error message|
 |log_critical|Log a critical message and exit the script with status 1|
+|set_log_level| Update log level at runtime|
 
 ## Contributing
 
