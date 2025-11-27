@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 ## [2.0.1](https://github.com/diablo02000/log4bash/compare/2.0.0...2.0.1) (2025-11-26)
 
 

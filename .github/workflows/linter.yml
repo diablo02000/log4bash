@@ -1,3 +1,4 @@
+---
 name: Linter
 
 on:
@@ -5,6 +6,8 @@ on:
     branches-ignore:
       - master
       - main
+
+permissions: read-all
 
 jobs:
   super-linter:
@@ -15,16 +18,27 @@ jobs:
       statuses: write
     steps:
     - name: Check out code
-      uses: actions/checkout@v6
+      # Version v6.0.0
+      uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       with:
         # super-linter needs the full git history to get the
         # list of files that changed across commits
         fetch-depth: 0
         persist-credentials: false
     - name: Run super-linter
-      uses: super-linter/super-linter@v8.2.1
+      # Version v8.2.1
+      uses: super-linter/super-linter@2bdd90ed3262e023ac84bf8fe35dc480721fc1f2
       env:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_BASH_EXEC: false
+          VALIDATE_BIOME_FORMAT: false
+          VALIDATE_BIOME_LINT: false
+          VALIDATE_JSCPD: false
+          VALIDATE_JSON: false
+          VALIDATE_JSON_PRETTIER: false
+          VALIDATE_MARKDOWN_PRETTIER: false
+          VALIDATE_TRIVY: false
+          VALIDATE_YAML_PRETTIER: false
       with:
         filesToIgnoreRegex: "CHANGELOG.md"

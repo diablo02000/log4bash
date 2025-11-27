@@ -2,6 +2,7 @@
 
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 ![shell-script](https://img.shields.io/badge/script-bash-121011?logo=gnu-bash&logoColor=white)
+[![Super-Linter](https://github.com/diablo02000/log4bash/actions/workflows/linter.yaml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -34,18 +35,18 @@ For development, this project uses mise to manage tools and tasks. See the [Deve
 
 ## How to Use
 
-1) Import the module in your script:
+1. Import the module in your script:
 
-```bash
-#!/bin/bash
-source log4bash/log4bash.sh
-```
+   ```bash
+   #!/bin/bash
+   source log4bash/log4bash.sh
+   ```
 
-2) Call any logging function:
+2. Call any logging function:
 
-```bash
-log4bash_info "This is an info message."
-```
+   ```bash
+   log4bash_info "This is an info message."
+   ```
 
 ## Variables
 
@@ -69,7 +70,7 @@ Use these functions to log messages at different severity levels:
 |log_warn|Log a warning message|
 |log_error|Log an error message|
 |log_critical|Log a critical message and exit the script with status 1|
-|set_log_level| Update log level at runtime|
+|set_log_level|Update log level at runtime|
 
 ## Contributing
 
@@ -87,10 +88,10 @@ Follow these commit message conventions for automated releases:
 
 |Commit Message Example|Release Type|
 |---|---|
-|feat(pencil): Add fatal method| Feature Release|
-|fix(pencil): Add newline after message Bug| Fix Release|
-|doc: Update README| Documentation Update|
-|break: Rename method| Breaking/Major Release|
+|feat(pencil): Add fatal method|Feature Release|
+|fix(pencil): Add newline after message Bug|Fix Release|
+|doc: Update readme|Documentation Update|
+|break: Rename method|Breaking/Major Release|
 
 ## Development
 
@@ -98,17 +99,17 @@ This project uses [`mise`](https://mise.jdx.dev/) to manage tools and automate t
 
 ### Setup
 
-1) Install `mise` (if not already installed):
+1. Install `mise` (if not already installed):
 
-```bash
-curl https://mise.run | sh
-```
+   ```bash
+   curl https://mise.run | sh
+   ```
 
-2) Install the required tools and dependencies:
+2. Install the required tools and dependencies:
 
-```bash
-mise install
-```
+   ```bash
+   mise install
+   ```
 
 ## Examples
 

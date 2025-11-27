@@ -9,7 +9,6 @@ repos:
     rev: 3.0.0
     hooks:
     - id: shellcheck
-    - id: markdownlint
     - id: script-must-have-extension
       types: [shell, non-executable] 
       excludes: "tests/test_helper/common-setup.bash"
@@ -23,3 +22,7 @@ repos:
     rev: v1.7.9
     hooks:
       - id: actionlint
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.46.0
+    hooks:
+    - id: markdownlint

@@ -5,7 +5,7 @@ load 'test_helper/bats-support/load'
 load 'test_helper/bats-assert/load'
 
 _common_setup() {
-  # Define default output message
-  # shellcheck disable=SC2034
-  OUTPUT_MESSAGE="dummy message for testing purpose"
+	# Define default output message
+	# shellcheck disable=SC2034
+	OUTPUT_MESSAGE="dummy message for testing purpose"
 }
