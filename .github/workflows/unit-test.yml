@@ -1,4 +1,6 @@
 ---
+name: Unit-tests
+
 on: [push]
 
 permissions: read-all
