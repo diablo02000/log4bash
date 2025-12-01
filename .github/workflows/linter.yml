@@ -38,5 +38,4 @@ jobs:
           VALIDATE_MARKDOWN_PRETTIER: false
           VALIDATE_TRIVY: false
           VALIDATE_YAML_PRETTIER: false
-      with:
-        filesToIgnoreRegex: "CHANGELOG.md"
+          FILTER_REGEX_EXCLUDE: "CHANGELOG.md"
