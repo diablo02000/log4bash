@@ -10,7 +10,6 @@
 
 * **log4bash:** Add 'set_log_level' to allow update log level ([7dd0e50](https://github.com/diablo02000/log4bash/commit/7dd0e50de84d15a169511bb3d1eeaf8b5da32d30))
 
-<!-- markdownlint-disable -->
 ## [2.0.1](https://github.com/diablo02000/log4bash/compare/2.0.0...2.0.1) (2025-11-26)
 
 

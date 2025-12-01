@@ -2,10 +2,8 @@
 name: Linter
 
 on:
-  push:
-    branches-ignore:
-      - master
-      - main
+  pull_request:
+    branches: [master, main]
 
 permissions: read-all
 
@@ -40,5 +38,4 @@ jobs:
           VALIDATE_MARKDOWN_PRETTIER: false
           VALIDATE_TRIVY: false
           VALIDATE_YAML_PRETTIER: false
-      with:
-        filesToIgnoreRegex: "CHANGELOG.md"
+          FILTER_REGEX_EXCLUDE: "CHANGELOG.md"

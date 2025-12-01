@@ -11,7 +11,6 @@ repos:
     - id: shellcheck
     - id: script-must-have-extension
       types: [shell, non-executable] 
-      excludes: "tests/test_helper/common-setup.bash"
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v4.10.0
     hooks:
@@ -26,3 +25,5 @@ repos:
     rev: v0.46.0
     hooks:
     - id: markdownlint
+      args: ["--ignore", "CHANGELOG.md"]
+

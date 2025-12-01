@@ -1,5 +1,14 @@
 ---
-on: [push]
+name: Unit-tests
+
+on:
+  pull_request:
+    branches: [master, main]
+    paths:
+      - '**/*.sh'
+      - '**/*.bats'
+      - '**/*.bash'
+      - 'github/workflows/unit-tests.yml'
 
 permissions: read-all
 
