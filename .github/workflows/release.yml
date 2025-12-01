@@ -1,12 +1,10 @@
 
 ---
-name: Auto-tag
+name: Release
 
 on:
   push:
-    branches:
-      - master
-      - main
+    branches: [master, main]
 
 permissions:
   contents: write
