@@ -52,11 +52,22 @@ declare LOG_LEVEL_INT="${LOG_LEVELS[$LOG_LEVEL]}"
 TERMINAL_SUPPORTS_COLORS=$(tput colors 2>/dev/null || echo 0)
 readonly TERMINAL_SUPPORTS_COLORS
 
+# disable color when log format is define
+if [[ -n ${LOG_OUTPUT_FORMAT} ]]; then
+	ENABLE_COLOR=0
+fi
+
 # --- Log Message Format ---
-# Format for colored logs: [LEVEL] - TIMESTAMP - MESSAGE
-declare -r COLOR_TEXT_FMT="[%b%s%b] - %s - %.${MAX_MESSAGE_LENGTH}b\n"
-# Format for non-colored logs: [LEVEL] - TIMESTAMP - MESSAGE
-declare -r DEFAULT_TEXT_FMT="[%s] - %s - %.${MAX_MESSAGE_LENGTH}b\n"
+# If terminal support colors or color mode is enabled
+if [[ "$TERMINAL_SUPPORTS_COLORS" -gt 8 ]] && [[ "$ENABLE_COLOR" -gt 0 ]]; then
+	# Format for colored logs: [LEVEL] - TIMESTAMP - MESSAGE
+	LOG_OUTPUT_FORMAT="[%b%s%b] - %s - %.${MAX_MESSAGE_LENGTH}b\n"
+# if log output format is not define
+elif [[ -z ${LOG_OUTPUT_FORMAT} ]]; then
+	# Format for non-colored logs: [LEVEL] - TIMESTAMP - MESSAGE
+	LOG_OUTPUT_FORMAT="[%s] - %s - %.${MAX_MESSAGE_LENGTH}b\n"
+fi
+readonly LOG_OUTPUT_FORMAT
 
 # --- Core Logging Function ---
 # Outputs a formatted log message if the message's level >= current LOG_LEVEL
@@ -71,13 +82,12 @@ function _log_output() {
 	# Use colored format if terminal supports it and colors are enabled
 	if [[ "$TERMINAL_SUPPORTS_COLORS" -gt 8 ]] && [[ "$ENABLE_COLOR" -gt 0 ]]; then
 		args+=("${COLOR_CODES[$level]}" "$level" "${COLOR_CODES[RESET]}")
-		# shellcheck disable=SC2059
-		printf "$COLOR_TEXT_FMT" "${args[@]}" "$(date +"$DATE_FORMAT")" "$message"
 	else
 		args+=("$level")
-		# shellcheck disable=SC2059
-		printf "$DEFAULT_TEXT_FMT" "${args[@]}" "$(date +"$DATE_FORMAT")" "$message"
 	fi
+
+	# shellcheck disable=SC2059
+	printf "$LOG_OUTPUT_FORMAT" "${args[@]}" "$(date +"$DATE_FORMAT")" "$message"
 }
 
 # --- Log Level Functions ---
