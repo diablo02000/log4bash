@@ -1,3 +1,16 @@
+## [2.1.1](https://github.com/diablo02000/log4bash/compare/2.1.0...2.1.1) (2025-12-01)
+
+
+### Bug Fixes
+
+* **actions:** Add name to unit-tests workflow ([dffe2e7](https://github.com/diablo02000/log4bash/commit/dffe2e7536209242a3dd72f5bb67ad772c2f3672))
+* **actions:** Update 'Linter' workflow to run only on pull_request ([72495d0](https://github.com/diablo02000/log4bash/commit/72495d0c68ace0ea7e79985fbbefa34319165e3d))
+* **actions:** Update 'Release' workflow name ([ea697e7](https://github.com/diablo02000/log4bash/commit/ea697e75015b5a27fc6a0221165100affcc4cebc))
+* **actions:** Update 'Unit-tests' workflow to run only on pull_request and shell scripts are updated ([10d9338](https://github.com/diablo02000/log4bash/commit/10d9338d263ee8b9f3021d1331c8701532825b4a))
+* **pre-commit:** Unexpected key(s) present on script-must-have-extension ([f6a8fa5](https://github.com/diablo02000/log4bash/commit/f6a8fa549e9552faa8ff09e2501fab900ddaab45))
+* **workflow:** Exclude changelog.md file from super-linter ([f2ed069](https://github.com/diablo02000/log4bash/commit/f2ed069040b29ad19ddc402ebbc8d1fb073bdfe1))
+* **workflow:** Rename unit-tests file ([9708a69](https://github.com/diablo02000/log4bash/commit/9708a6914bc31359eae36f972c359463fcd7d090))
+
 # [2.1.0](https://github.com/diablo02000/log4bash/compare/2.0.1...2.1.0) (2025-12-01)
 
 
