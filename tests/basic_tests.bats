@@ -41,7 +41,7 @@ setup() {
 	source "$(dirname "${BATS_TEST_DIRNAME}")/log4bash.sh"
 	run log_info "${OUTPUT_MESSAGE}"
 	assert_output --partial "INFO"
-	assert_output --partial ""
+	assert_output --partial "${OUTPUT_MESSAGE}"
 }
 
 @test "log_warn outputs warning message" {
