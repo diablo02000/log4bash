@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/diablo02000/log4bash/compare/2.1.1...2.2.0) (2025-12-02)
+
+
+### Features
+
+* **log4bash:** Write log to filename ([96efe3f](https://github.com/diablo02000/log4bash/commit/96efe3f4204205ff0c810b7bc06def47f1bd05a2))
+
 ## [2.1.1](https://github.com/diablo02000/log4bash/compare/2.1.0...2.1.1) (2025-12-01)
 
 
