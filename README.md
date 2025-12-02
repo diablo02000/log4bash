@@ -1,7 +1,7 @@
 # Log4Bash
 
 ![Shell-script](https://img.shields.io/badge/script-bash-121011?logo=gnu-bash&logoColor=white)
-![GitHub Tag](https://img.shields.io/github/v/tag/diablo02000/shell-repository-template)
+![GitHub Tag](https://img.shields.io/github/v/tag/diablo02000/log4bash)
 [![Semantic-release](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
