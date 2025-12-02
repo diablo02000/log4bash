@@ -41,7 +41,7 @@ setup() {
 	source "$(dirname "${BATS_TEST_DIRNAME}")/log4bash.sh"
 	run log_info "${OUTPUT_MESSAGE}"
 	assert_output --partial "INFO"
-	assert_output --partial ""
+	assert_output --partial "${OUTPUT_MESSAGE}"
 }
 
 @test "log_warn outputs warning message" {
@@ -109,6 +109,17 @@ setup() {
 	run log_info "${OUTPUT_MESSAGE}"
 	assert_output --partial "[INFO]"
 	refute_output --partial "$(tput setaf 2)"
+}
+
+# --- Tests custom log format ---
+@test "log_info outputs use custom log format" {
+	# Variable use in log4bash.sh file
+	# shellcheck disable=SC2034,SC2030,SC2031
+	LOG_OUTPUT_FORMAT="%s | %s | %.${MAX_MESSAGE_LENGTH}b\n"
+	source "$(dirname "${BATS_TEST_DIRNAME}")/log4bash.sh"
+	run log_info "${OUTPUT_MESSAGE}"
+	assert_output --partial "INFO"
+	assert_output --partial "INFO |"
 }
 
 # --- Tests for Message Length ---

@@ -53,10 +53,13 @@ Customize the behavior of `log4bash` using these environment variables:
 
 |Name|Default Value|Description|
 |---|---|---|
-|LOG4BASH_LOG_LEVEL|INFO|Set the minimum log level to display (e.g., DEBUG, INFO, WARN)|
-|LOG4BASH_DATE_FMT|%D %X|Define the date format (see man date for options)|
-|LOG4BASH_MAX_MESSAGE|100|Limit the maximum length of log messages|
-|LOG4BASH_ENABLE_COLOR_MODE|1|Enable or disable colored output (1 for enabled, 0 for disabled)|
+|LOG_LEVEL|INFO|Set the minimum log level to display (e.g., DEBUG, INFO, WARN)|
+|DATE_FORMAT|%D %X|Define the date format (see man date for options)|
+|MAX_MESSAGE_LENGTH|100|Limit the maximum length of log messages|
+|ENABLE_COLOR|1|Enable or disable colored output (1 for enabled, 0 for disabled)|
+|LOG_OUTPUT_FORMAT|``|Define custom log format|
+|LOG_OUTPUT_STRATEGY|console|Define log output destination (console, file)|
+|LOG_FILENAME|``|Define log full path when output strategy is `file`|
 
 ## Functions
 
