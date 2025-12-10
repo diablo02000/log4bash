@@ -30,6 +30,8 @@ declare MAX_MESSAGE_LENGTH="${MAX_MESSAGE_LENGTH:=100}"
 declare ENABLE_COLOR="${ENABLE_COLOR:=1}"
 # Output log destination (console, file)
 declare LOG_OUTPUT_STRATEGY="${LOG_OUTPUT_STRATEGY:=console}"
+# Init log output format variable
+declare LOG_OUTPUT_FORMAT="${LOG_OUTPUT_FORMAT:=""}"
 
 # --- Color Codes ---
 # Note: Only used if terminal supports colors and ENABLE_COLOR=1
