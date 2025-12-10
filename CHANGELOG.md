@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/diablo02000/log4bash/compare/2.2.0...2.2.1) (2025-12-10)
+
+
+### Bug Fixes
+
+* **logbash:** LOG_OUTPUT_FORMAT unbound variable ([b8f1efd](https://github.com/diablo02000/log4bash/commit/b8f1efdda4ac72d8235481fdfd00a037ff3f2881))
+
 # [2.2.0](https://github.com/diablo02000/log4bash/compare/2.1.1...2.2.0) (2025-12-02)
 
 
