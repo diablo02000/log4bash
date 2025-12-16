@@ -18,14 +18,12 @@ jobs:
      name: Install Bats and bats libs
      steps:
        - name: Checkout
-         # Version v6.0.0
-         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
+         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
          with:
            persist-credentials: false
        - name: Setup Bats and bats libs
          id: setup-bats
-         # Version 3.0.1
-         uses: bats-core/bats-action@42fcc8700f773c075a16a90eb11674c0318ad507
+         uses: bats-core/bats-action@42fcc8700f773c075a16a90eb11674c0318ad507 # v3.0.1
          with:
            support-path: ${{ github.workspace }}/tests/test_helper/bats-support
            assert-path: "${{ github.workspace }}/tests/test_helper/bats-assert"
