@@ -1,3 +1,11 @@
+## [2.2.2](https://github.com/diablo02000/log4bash/compare/2.2.1...2.2.2) (2025-12-16)
+
+
+### Bug Fixes
+
+* **github:** Upgrade GitHub action version and add semver tag as comments ([cc3cecb](https://github.com/diablo02000/log4bash/commit/cc3cecb85796d2576ba336874707f9d7c717f4ff))
+* **renovate:** Handle commit version base on semver tags ([742d09d](https://github.com/diablo02000/log4bash/commit/742d09d57f161fa444e704c33efb32d0f0f5213e))
+
 ## [2.2.1](https://github.com/diablo02000/log4bash/compare/2.2.0...2.2.1) (2025-12-10)
 
 
