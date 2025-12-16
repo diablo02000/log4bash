@@ -25,7 +25,7 @@ jobs:
         persist-credentials: false
     - name: Run super-linter
       # Version v8.2.1
-      uses: super-linter/super-linter@d29d0d4ffb9e0d5f71026f616ba31b1228b772fa
+      uses: super-linter/super-linter@3f925892e7f0f6020a698a69caef86eb3277cd9c
       env:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
