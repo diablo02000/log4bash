@@ -12,7 +12,7 @@ run = [
 ]
 
 [tasks.clean_bats_helper]
-description = "Delet required bats extended libraries"
+description = "Delete required bats extended libraries"
 run = [
   "rm -rf tests/test_helper/bats-support",
   "rm -rf tests/test_helper/bats-assert"
