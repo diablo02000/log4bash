@@ -1,3 +1,17 @@
+# [2.3.0](https://github.com/diablo02000/log4bash/compare/2.2.2...2.3.0) (2026-03-31)
+
+
+### Bug Fixes
+
+* **codespell:** Add codespell configuration file ([484e2e0](https://github.com/diablo02000/log4bash/commit/484e2e054449353af71a4744b66da5757c8614cf))
+* **codespell:** Update skip rule in codespellrc file ([b4c6c9d](https://github.com/diablo02000/log4bash/commit/b4c6c9d013289dd9e4ab91ff2714bcebc7145cce))
+* **linter:** wording errors raised by codespell ([f0f88e8](https://github.com/diablo02000/log4bash/commit/f0f88e8ef2f415f44afa26bf4f5d4c3258ac4f93))
+
+
+### Features
+
+* **pre-commit:** Add codespell in pre-commit ([a9723e4](https://github.com/diablo02000/log4bash/commit/a9723e4e9a23a6748f7bdf0864338760baab045e))
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
