@@ -27,7 +27,7 @@ teardown() {
 	LOG_LEVEL="DEBUG"
 	source "$(dirname "${BATS_TEST_DIRNAME}")/log4bash.sh"
 	run log_debug "${OUTPUT_MESSAGE}"
-	# File shoud exist
+	# File should exist
 	assert [ -f "${LOG_FILENAME}" ]
 
 	run grep -q "DEBUG" "${LOG_FILENAME}"
@@ -40,7 +40,7 @@ teardown() {
 @test "log_info outputs info message" {
 	source "$(dirname "${BATS_TEST_DIRNAME}")/log4bash.sh"
 	run log_info "${OUTPUT_MESSAGE}"
-	# File shoud exist
+	# File should exist
 	assert [ -f "${LOG_FILENAME}" ]
 
 	run grep -q "INFO" "${LOG_FILENAME}"
@@ -53,7 +53,7 @@ teardown() {
 @test "log_warn outputs warning message" {
 	source "$(dirname "${BATS_TEST_DIRNAME}")/log4bash.sh"
 	run log_warn "${OUTPUT_MESSAGE}"
-	# File shoud exist
+	# File should exist
 	assert [ -f "${LOG_FILENAME}" ]
 
 	run grep -q "WARN" "${LOG_FILENAME}"
@@ -66,7 +66,7 @@ teardown() {
 @test "log_error outputs error message" {
 	source "$(dirname "${BATS_TEST_DIRNAME}")/log4bash.sh"
 	run log_error "${OUTPUT_MESSAGE}"
-	# File shoud exist
+	# File should exist
 	assert [ -f "${LOG_FILENAME}" ]
 
 	run grep -q "ERROR" "${LOG_FILENAME}"
@@ -80,7 +80,7 @@ teardown() {
 	source "$(dirname "${BATS_TEST_DIRNAME}")/log4bash.sh"
 	run log_critical "${OUTPUT_MESSAGE}"
 	assert_failure
-	# File shoud exist
+	# File should exist
 	assert [ -f "${LOG_FILENAME}" ]
 
 	run grep -q "CRITI" "${LOG_FILENAME}"

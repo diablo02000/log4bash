@@ -17,7 +17,7 @@ log_debug "Print log in DEBUG log level"
 # Print Info log
 log_info "Print log in INFO log level"
 
-# Print Warnning log
+# Print Warning log
 log_warn "Print log in WARN log level"
 
 # Print Error log

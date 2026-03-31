@@ -91,7 +91,7 @@ setup() {
 
 @test "set_log_level rejects invalid level" {
 	source "$(dirname "${BATS_TEST_DIRNAME}")/log4bash.sh"
-	set_log_level "INVLID" &>/dev/null
+	set_log_level "INVALID" &>/dev/null
 	run set_log_level "INVALID"
 	assert_output --partial "Invalid log level: INVALID"
 	# Shellcheck raise spurious SC2030,SC2031 warnings with bats
