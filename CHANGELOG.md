@@ -1,3 +1,33 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+  - [2.2.2 (2025-12-16)](#222-2025-12-16)
+    - [Bug Fixes](#bug-fixes)
+  - [2.2.1 (2025-12-10)](#221-2025-12-10)
+    - [Bug Fixes](#bug-fixes-1)
+- [2.2.0 (2025-12-02)](#220-2025-12-02)
+    - [Features](#features)
+  - [2.1.1 (2025-12-01)](#211-2025-12-01)
+    - [Bug Fixes](#bug-fixes-2)
+- [2.1.0 (2025-12-01)](#210-2025-12-01)
+    - [Bug Fixes](#bug-fixes-3)
+    - [Features](#features-1)
+  - [2.0.1 (2025-11-26)](#201-2025-11-26)
+    - [Bug Fixes](#bug-fixes-4)
+- [2.0.0 (2025-11-26)](#200-2025-11-26)
+  - [1.0.3 (2025-11-26)](#103-2025-11-26)
+    - [Bug Fixes](#bug-fixes-5)
+  - [1.0.2 (2022-09-21)](#102-2022-09-21)
+    - [Bug Fixes](#bug-fixes-6)
+  - [1.0.1 (2022-03-14)](#101-2022-03-14)
+    - [Bug Fixes](#bug-fixes-7)
+- [1.0.0 (2022-03-06)](#100-2022-03-06)
+    - [Bug Fixes](#bug-fixes-8)
+    - [Features](#features-2)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## [2.2.2](https://github.com/diablo02000/log4bash/compare/2.2.1...2.2.2) (2025-12-16)
 
 
@@ -73,8 +103,8 @@
 
 ### Bug Fixes
 
-* Add script portability accross UNIX like operating system. ([dd59fc3](https://github.com/diablo02000/log4bash/commit/dd59fc3b8f7c1f93ac93e166e0605bf9f9aafeff))
-* Add script portability accross UNIX like operating system. ([46345f8](https://github.com/diablo02000/log4bash/commit/46345f8d44d76de473df5f58eabd8e006d065f5e))
+* Add script portability across UNIX like operating system. ([dd59fc3](https://github.com/diablo02000/log4bash/commit/dd59fc3b8f7c1f93ac93e166e0605bf9f9aafeff))
+* Add script portability across UNIX like operating system. ([46345f8](https://github.com/diablo02000/log4bash/commit/46345f8d44d76de473df5f58eabd8e006d065f5e))
 * Exclude CHANGELOG.md file from markdown linter. ([aa763a0](https://github.com/diablo02000/log4bash/commit/aa763a0d3654a2d933485de9d643abcf4a1738fa))
 
 # 1.0.0 (2022-03-06)

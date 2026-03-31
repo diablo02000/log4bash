@@ -36,4 +36,6 @@ jobs:
           VALIDATE_MARKDOWN_PRETTIER: false
           VALIDATE_TRIVY: false
           VALIDATE_YAML_PRETTIER: false
+          # To re-enable when https://github.com/super-linter/super-linter/issues/7466 will be closed
+          VALIDATE_SPELL_CODESPELL: false
           FILTER_REGEX_EXCLUDE: "CHANGELOG.md"
